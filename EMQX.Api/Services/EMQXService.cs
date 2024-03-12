@@ -42,6 +42,7 @@ namespace EMQX.Api.Services
         private async Task OnApplicationMessageReceivedAsync(MqttApplicationMessageReceivedEventArgs arg)
         {
             Console.WriteLine($"Получено сообщение с кодом: {arg.ReasonCode}");
+            string data = arg.ApplicationMessage.ConvertPayloadToString();
             await Task.CompletedTask;
         }
 
